@@ -1,30 +1,109 @@
 <div class="player-info">
-  <div class="player-header mt-50 ml-50 mr-50">
+  <div class="player-header mt-50">
     <div class="info">
-      <h1 class="is-size-1"><%= @player.name %></h1>
-      <div class="stats is-full">
-        <div class="goals">
-          <div class="label-and-img">
-            <div class="img">
-              <img src="<%= image_url "goals.png" %>" width="24px" alt="">
-            </div>
-            <label id="goals-label">No Of Goals</label>
-          </div>
-          <label id="goals">182</label>
-        </div>
-        <div class="trophies">
-          <div class="label-and-img">
-            <div class="img">
-              <img src="<%= image_url "trophies.png" %>" width="24px" alt="">
-            </div>
-            <label id="trophies-label">No Of Trophies</label>
-          </div>
-          <label id="trophies">182</label>
-        </div>
-      </div>
+      <h1 class="is-size-1 mb-30 has-text-weight-bold"><%= @player.name %></h1>
+      <%= render partial: "partials/label_and_img", locals: { 
+        image_name: 'goals.png',
+        label: 'Goals',
+        value: @player.goals,
+      } %>
+
+      <%= render partial: "partials/label_and_img", locals: { 
+        image_name: 'assists.png',
+        label: 'Assists',
+        value: @player.assists,
+      } %>
+
+      <%= render partial: "partials/label_and_img", locals: { 
+        image_name: 'trophies.png',
+        label: 'Trophies',
+        value: @player.trophies,
+      } %>
+
+      <%= render partial: "partials/label_and_img", locals: { 
+        image_name: 'position.png',
+        label: 'Position',
+        value: @player.position,
+      } %>
     </div>
     <div class="img">
-      <img class="rounded-img" height="150" src="<%= image_url "players/#{@player.id}.jpeg" %>" >
+      <img class="rounded-img" width="200" src="<%= image_url "players/#{@player.id}.jpeg" %>" >
+    </div>
+  </div>
+  <div class="secondary-stats mt-100">
+    <h1 class="is-size-3">Other Stats</h1>
+    <div class="flex flex-wrap justify-space-between">
+      <%= render partial: "partials/label_and_img", locals: { 
+        image_name: 'greencard.png',
+        label: 'Green Cards',
+        value: @player.redcards,
+      } %>
+
+      <%= render partial: "partials/label_and_img", locals: { 
+        image_name: 'redcard.png',
+        label: 'Red Cards',
+        value: @player.redcards,
+      } %>
+
+      <%= render partial: "partials/label_and_img", locals: { 
+        image_name: 'yellowcard.png',
+        label: 'Yellow Cards',
+        value: @player.yellowcards,
+      } %>
+
+      <%= render partial: "partials/label_and_img", locals: { 
+        image_name: 'nationality.png',
+        label: 'Nationality',
+        value: @player.nationality,
+      } %>
+
+      <%= render partial: "partials/label_and_img", locals: { 
+        image_name: 'networth.png',
+        label: 'Net Worth',
+        value: @player.networth,
+      } %>
+
+      <%= render partial: "partials/label_and_img", locals: { 
+        image_name: 'appearance.png',
+        label: 'Appearances',
+        value: @player.appearance,
+      } %>
+
+      <%= render partial: "partials/label_and_img", locals: { 
+        image_name: 'jerseyno.png',
+        label: 'Jersey No',
+        value: @player.jersey_no,
+      } %>
+
+      <%= render partial: "partials/label_and_img", locals: { 
+        image_name: 'outfitter.png',
+        label: 'Outfitter',
+        value: 'Adidas',
+      } %>
+
+      <%= render partial: "partials/label_and_img", locals: { 
+        image_name: 'age.png',
+        label: 'Current Age',
+        value: 20,
+      } %>
+
+      <%= render partial: "partials/label_and_img", locals: { 
+        image_name: 'club.png',
+        label: 'Current Club',
+        value: 'Liverpool',
+      } %>
+
+      <%= render partial: "partials/label_and_img", locals: { 
+        image_name: 'height.png',
+        label: 'Height',
+        value: '5"9',
+      } %>
+
+      <%= render partial: "partials/label_and_img", locals: { 
+        image_name: 'foot.png',
+        label: 'Foot',
+        value: 'Left',
+      } %>
     </div>
   </div>
 </div>
