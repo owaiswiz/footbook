@@ -22,3 +22,15 @@
 .rounded-img {
   border-radius: 100%;
 }
+
+.flex {
+  display: flex;
+}
+
+.flex-wrap {
+  flex-wrap: wrap;
+}
+
+.justify-space-between {
+  justify-content: space-between;
+}

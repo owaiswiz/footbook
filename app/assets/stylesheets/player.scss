@@ -5,22 +5,52 @@
 .player-header {
   display: flex;
   justify-content: space-between;
+  align-items: center;
 }
 
-.label-and-img {
-  display: flex;
-}
-
-.label-and-img img{
-  margin-right: 15px;
-}
-
-.stats {
-  min-width: 250px;
-}
-
-.stats > div{
+.label-and-img-container {
+  flex-grow: 1;
   display: flex;
   justify-content: space-between;
-  margin: 1rem;
+  align-items: center;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+
+  .label-and-img {
+    display: flex;
+    align-items: center;
+  }
+
+  .label-and-img img{
+    margin-right: 15px;
+  }
+}
+
+.player-info {
+  width: 960px;
+  margin: auto;
+  .stats {
+    min-width: 250px;
+    margin-top: 3rem;
+  }
+}
+
+.secondary-stats {
+  .flex.justify-space-between > div{
+    padding: 0.5rem;
+    border: 2px solid transparent;
+    margin: 2.5rem 3rem;
+    min-width: 25%;
+    max-width: 25%;
+    &:nth-child(3n+1){
+      margin-left: 0;
+    }
+    &:nth-child(3n) {
+      margin-right: 0;
+    }
+    &:hover {
+      border: 2px solid black;
+      cursor: pointer;
+    }
+  }
 }
