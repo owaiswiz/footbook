@@ -18,3 +18,7 @@
 .navbar-item img {
   max-height: 50rem;
 }
+
+.rounded-img {
+  border-radius: 100%;
+}
