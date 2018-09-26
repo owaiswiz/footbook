@@ -1,0 +1,26 @@
+// Place all the styles related to the Player controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+.player-header {
+  display: flex;
+  justify-content: space-between;
+}
+
+.label-and-img {
+  display: flex;
+}
+
+.label-and-img img{
+  margin-right: 15px;
+}
+
+.stats {
+  min-width: 250px;
+}
+
+.stats > div{
+  display: flex;
+  justify-content: space-between;
+  margin: 1rem;
+}

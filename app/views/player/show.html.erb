@@ -1,0 +1,31 @@
+<div class="player-info">
+  <div class="player-header mt-50 ml-50 mr-50">
+    <div class="info">
+      <h1 class="is-size-1"><%= @player.name %></h1>
+      <div class="stats is-full">
+        <div class="goals">
+          <div class="label-and-img">
+            <div class="img">
+              <img src="<%= image_url "goals.png" %>" width="24px" alt="">
+            </div>
+            <label id="goals-label">No Of Goals</label>
+          </div>
+          <label id="goals">182</label>
+        </div>
+        <div class="trophies">
+          <div class="label-and-img">
+            <div class="img">
+              <img src="<%= image_url "trophies.png" %>" width="24px" alt="">
+            </div>
+            <label id="trophies-label">No Of Trophies</label>
+          </div>
+          <label id="trophies">182</label>
+        </div>
+      </div>
+    </div>
+    <div class="img">
+      <img class="rounded-img" height="150" src="<%= image_url "players/#{@player.id}.jpeg" %>" >
+    </div>
+  </div>
+</div>
+
