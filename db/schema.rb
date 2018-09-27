@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_09_27_142949) do
+ActiveRecord::Schema.define(version: 2018_09_27_163933) do
 
   create_table "players", force: :cascade do |t|
     t.string "name"
@@ -33,6 +33,7 @@ ActiveRecord::Schema.define(version: 2018_09_27_142949) do
     t.integer "one_stars", default: 0
     t.string "club"
     t.integer "age", default: 0
+    t.integer "greencards"
   end
 
 end
