@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_09_26_091037) do
+ActiveRecord::Schema.define(version: 2018_09_27_104624) do
 
   create_table "players", force: :cascade do |t|
     t.string "name"
@@ -26,6 +26,11 @@ ActiveRecord::Schema.define(version: 2018_09_26_091037) do
     t.integer "yellowcards"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "five_stars", default: 0
+    t.integer "four_stars", default: 0
+    t.integer "three_stars", default: 0
+    t.integer "two_stars", default: 0
+    t.integer "one_stars", default: 0
   end
 
 end
