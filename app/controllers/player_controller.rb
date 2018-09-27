@@ -5,6 +5,10 @@ class PlayerController < ApplicationController
     @player = Player.find params["id"]
   end
 
+  def search
+    render json: Player.search_by_name(params["name"]).to_json
+  end
+
   def stars
     @player = Player.find params["id"]
     render json: { 
