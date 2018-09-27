@@ -36,4 +36,7 @@ class PlayerController < ApplicationController
     @player.save
     render json: {status: :ok}
   end
+
+  def compare
+  end
 end

@@ -1,0 +1,69 @@
+<table class="comparison-table">
+  <thead>
+    <tr>
+      <td class="is-size-5">Players</td>
+      <td class="name-and-img-cell">
+        <div>
+          <img class="rounded-img" src='<%= image_url "players/1.jpeg" %>' width="128px"/>
+          <div>
+            Leonel Messi
+          </div>
+        </div>
+      </td>
+      <td class="name-and-img-cell">
+        <div>
+          <img class="rounded-img" src='<%= image_url "players/1.jpeg" %>' width="128px"/>
+          <div>
+            Ronaldo Cristiano
+          </div>
+        </div>
+      </td>
+    </tr>
+  </thead>
+  <tbody>
+    <% comparisons = {
+      goals: {label: 'Goals', image: 'goals.png', key: 'goals'},
+      assists: {label: 'Assists', image: 'assists.png', key: 'assists'},
+      trophies: {label: 'Trophies', image: 'trophies.png', key: 'trophies'},
+      position: {label: 'Position', image: 'assists.png', key: 'position'},
+      avgStars: {label: 'Avg. Stars', image: 'stars.png', key: 'avgstars'},
+      greenCard: {label: 'Green Cards', image: 'greencard.png', key: 'greencards'},
+      yellowCard: {label: 'Yellow Cards', image: 'yellowcard.png', key: 'yellowcards'},
+      redCard: {label: ' Red Cards', image: 'redcard.png', key: 'redcards'}
+    } %>
+
+    <% comparisons.keys.each do |key| %>
+      <tr>
+        <td class="<%= key %>">
+            <%= render partial: "partials/label_and_img", locals: { 
+              image_name: comparisons[key][:image],
+              label: comparisons[key][:label],
+              dont_scale: true,
+              justify_center: true,
+              no_border: true
+            } %>
+        </td>
+        <td class="<%= comparisons[key][:key] %>-player-1"></td>
+        <td class="<%= comparisons[key][:key] %>-player-2"></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

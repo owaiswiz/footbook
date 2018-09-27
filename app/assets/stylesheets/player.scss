@@ -18,7 +18,7 @@
   padding: 0.5rem;
   border: 2px solid transparent;
 
-  &:hover {
+  &:not(.no-border):hover {
     border: 2px solid black;
   }
 
@@ -57,3 +57,22 @@
     }
   }
 }
+
+.comparison-table {
+  width: 960px;
+  margin: auto;
+  thead td {
+    font-weight: bold;
+  }
+  td {
+    text-align: center;
+    vertical-align: middle;
+  }
+
+  .name-and-img-cell {
+    img {
+      margin-bottom: 1rem;
+    }
+  }
+}
+
