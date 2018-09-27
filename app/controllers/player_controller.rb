@@ -1,5 +1,35 @@
 class PlayerController < ApplicationController
+  protect_from_forgery unless: -> { request.format.json? }
+
   def show
     @player = Player.find params["id"]
+  end
+
+  def stars
+    @player = Player.find params["id"]
+    render json: { 
+      1 => @player.one_stars,
+      2 => @player.two_stars,
+      3 => @player.three_stars,
+      4 => @player.four_stars,
+      5 => @player.five_stars,
+    }
+  end
+
+  def rate
+    @player = Player.find params["id"]
+    ratings_map = {
+      1 => "one_stars",
+      2 => "two_stars",
+      3 => "three_stars",
+      4 => "four_stars",
+      5 => "five_stars"
+    }
+    old_value = params["oldValue"].to_i
+    new_value = params["newValue"].to_i
+    @player[ratings_map[old_value]] = [@player[ratings_map[old_value]]-1, 0].max if old_value != 0
+    @player[ratings_map[new_value]] += 1 if new_value != 0
+    @player.save
+    render json: {status: :ok}
   end
 end

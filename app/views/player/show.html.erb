@@ -30,6 +30,13 @@
         label: 'Position',
         value: @player.position,
       } %>
+
+      <%= render partial: "partials/label_and_img", locals: { 
+        image_name: 'stars.png',
+        label: 'Avg. Stars',
+        value: 'Loading',
+        value_class: 'avg-stars'
+      } %>
     </div>
     <div class="img scale-30">
       <img class="rounded-img" width="200" src="<%= image_url "players/#{@player.id}.jpeg" %>" >
@@ -113,3 +120,44 @@
   </div>
 </div>
 
+<script>
+  var oldValue = localStorage.getItem('<%= @player.id %>-stars') || 0
+  $('.player-rating').starrr({
+    rating: oldValue,
+    change: function(e, newValue) {
+      newValue = newValue || 0
+      $.ajax({
+        type: "POST",
+        url: '/player/rate/<%= @player.id %>',
+        data: {oldValue: oldValue, newValue: newValue},
+        success: function(data) {
+          updateStars();
+        }
+      })
+      localStorage.setItem('<%= @player.id %>-stars', newValue)
+      oldValue = newValue;
+    }
+  })
+
+  function updateStars() {
+    stars = $.ajax({
+      url: '/player/stars/<%= @player.id %>',
+      success: function(data) {
+        $('.star-1').attr('data-tooltip', data[1])
+        $('.star-2').attr('data-tooltip', data[2])
+        $('.star-3').attr('data-tooltip', data[3])
+        $('.star-4').attr('data-tooltip', data[4])
+        $('.star-5').attr('data-tooltip', data[5])
+        totalStars = 0
+        noOfRatings = 0
+        Object.keys(data).map((key) => {
+          totalStars += key * data[key]
+          noOfRatings += data[key]
+        })
+        $('.avg-stars').text((totalStars/noOfRatings) || 0)
+      }
+    });
+  }
+
+  updateStars();
+</script>
