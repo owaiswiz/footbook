@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
   get 'player/search/:name' => 'player#search'
   get 'player/show/:id' => 'player#show'
+  get 'player/json/:id' => 'player#json'
   get 'player/stars/:id' => 'player#stars'
   post 'player/rate/:id' => 'player#rate'
   get 'players/compare' => 'player#compare'
