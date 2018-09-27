@@ -67,12 +67,37 @@
   td {
     text-align: center;
     vertical-align: middle;
+    width: 100%;
+  }
+  td:not(:first-child) {
+    padding: 2.6rem;
+  }
+  tr {
+    transition-duration: 0.2s;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 1.5rem;
+  }
+  tr:hover {
+    border: 2px solid black;
+    transform: scale(1.1);
+    cursor: pointer;
   }
 
   .name-and-img-cell {
     img {
       margin-bottom: 1rem;
     }
+  }
+  .red {
+    background-color: #E57373;
+  }
+  .green {
+    background-color: #81C784;
+  }
+  .yellow {
+    background-color: #FFCA28;
   }
 }
 
