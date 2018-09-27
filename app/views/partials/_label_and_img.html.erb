@@ -1,9 +1,10 @@
+<% value_class ||= "value" %>
 <div class="label-and-img-container scale-30">
   <div class="label-and-img">
     <div class="img">
       <img src="<%= image_url image_name %>" width="48px" alt="">
     </div>
-    <label id="trophies-label"><%= label %></label>
+    <label><%= label %></label>
   </div>
-  <label id="trophies" class="has-text-weight-bold"><%= value %></label>
+  <label class="<%= value_class %> has-text-weight-bold"><%= value %></label>
 </div>
