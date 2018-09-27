@@ -22,14 +22,20 @@
   </thead>
   <tbody>
     <% comparisons = {
+      nationality: {label: 'Nationality', image: 'nationality.png', key: 'nationality'},
+      club: {label: 'Current Club', image: 'club.png', key: 'club'},
+      jersey_no: {label: 'Jersey No', image: 'jerseyno.png', key: 'jersey_no'},
+      age: {label: 'Current Age', image: 'age.png', key: 'age'},
+      position: {label: 'Position', image: 'assists.png', key: 'position'},
+      netWorth: {label: 'Net Worth', image: 'networth.png', key: 'networth'},
+      avgStars: {label: 'Avg. Stars', image: 'stars.png', key: 'avgstars'},
+      trophies: {label: 'Trophies', image: 'trophies.png', key: 'trophies'},
       goals: {label: 'Goals', image: 'goals.png', key: 'goals'},
       assists: {label: 'Assists', image: 'assists.png', key: 'assists'},
-      trophies: {label: 'Trophies', image: 'trophies.png', key: 'trophies'},
-      position: {label: 'Position', image: 'assists.png', key: 'position'},
-      avgStars: {label: 'Avg. Stars', image: 'stars.png', key: 'avgstars'},
-      greenCard: {label: 'Green Cards', image: 'greencard.png', key: 'greencards'},
       yellowCard: {label: 'Yellow Cards', image: 'yellowcard.png', key: 'yellowcards'},
-      redCard: {label: ' Red Cards', image: 'redcard.png', key: 'redcards'}
+      redCard: {label: ' Red Cards', image: 'redcard.png', key: 'redcards'},
+      appearance: {label: 'Appearance', image: 'appearance.png', key: 'appearance'},
+      height: {label: 'Height', image: 'height.png', key: 'height'},
     } %>
 
     <% comparisons.keys.each do |key| %>
