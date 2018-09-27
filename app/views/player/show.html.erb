@@ -1,7 +1,12 @@
 <div class="player-info">
+  <div class="name-and-rate-block mb-30 flex justify-space-between align-center">
+    <h1 class="is-size-1 has-text-weight-bold"><%= @player.name %></h1>
+    <div>
+      <div class="player-rating starrr"></div>
+    </div>
+  </div>
   <div class="player-header mt-50">
     <div class="info">
-      <h1 class="is-size-1 mb-30 has-text-weight-bold"><%= @player.name %></h1>
       <%= render partial: "partials/label_and_img", locals: { 
         image_name: 'goals.png',
         label: 'Goals',
