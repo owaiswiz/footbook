@@ -1,10 +1,17 @@
 <% value_class ||= "value" %>
-<div class="label-and-img-container scale-30">
+<% value ||= nil %>
+<% dont_scale ||= false %>
+<% justify_center ||= false %>
+<% no_border ||= false %>
+<div class="label-and-img-container <%= 'no-border' if no_border %> <%= 'justify-center' if justify_center %> <%= 'scale-30' unless dont_scale %>">
   <div class="label-and-img">
     <div class="img">
       <img src="<%= image_url image_name %>" width="48px" alt="">
     </div>
     <label><%= label %></label>
   </div>
-  <label class="<%= value_class %> has-text-weight-bold"><%= value %></label>
+
+  <% if value %>
+    <label class="<%= value_class %> has-text-weight-bold"><%= value %></label>
+  <% end %>
 </div>
