@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_09_27_163933) do
+ActiveRecord::Schema.define(version: 2018_09_27_184459) do
 
   create_table "players", force: :cascade do |t|
     t.string "name"
@@ -34,6 +34,7 @@ ActiveRecord::Schema.define(version: 2018_09_27_163933) do
     t.string "club"
     t.integer "age", default: 0
     t.integer "greencards"
+    t.integer "height", default: 0
   end
 
 end
