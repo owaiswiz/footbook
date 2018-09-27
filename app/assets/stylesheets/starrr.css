@@ -1,0 +1,11 @@
+.starrr, .starrr div {
+  display: inline-block; 
+  margin: 1rem;
+}
+.starrr a {
+  font-size: 1.8rem;
+  padding: 0 1px;
+  cursor: pointer;
+  color: #FFD119;
+  text-decoration: none; 
+}
