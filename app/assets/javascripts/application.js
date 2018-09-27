@@ -15,3 +15,39 @@
 //= require activestorage
 //= require turbolinks
 //= require_tree .
+
+
+document.addEventListener('turbolinks:load', function(){
+  $("input.search").on('input', ({target: {value}}) => {
+    if(!value || value.length == 0) {
+      $(".search-results").addClass('is-hidden')
+      return
+    }
+    $.ajax({
+      url: `/player/search/${value}`,
+      success: function(results) {
+        resultHTML = ""
+        results.map(result => {
+          resultHTML += `
+            <li id="${result.id}">
+              <a href="/player/show/${result.id}">
+                <span class="name">${result.name}</span>
+                •
+                <span class="club">${result.club || "No Club"}</span>
+                •
+                <span class="nationality">${result.nationality}</span>
+                •
+                <span class="goals">${result.goals} Goals</span>
+                •
+                <span class="age">${result.age} Yrs Old</span>
+              </a>
+            </li>`
+        })
+        if(resultHTML === "")
+          resultHTML = "<li><a href='#'>No Results Found</a></li>"
+        $('.search-results ul').html(resultHTML)
+        $(".search-results").removeClass('is-hidden')
+      }
+    })
+  })
+})
