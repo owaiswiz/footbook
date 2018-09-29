@@ -4,5 +4,17 @@
 
 .players {
   display:flex;
-  justify-content: space-between;
+  flex-wrap: wrap;
+  > div {
+    max-width: 20%;
+    min-width: 20%;
+    .content {
+      ul {
+        list-style: none;
+        li {
+          margin: 1.2rem auto;
+        }
+      }
+    }
+  }
 }
