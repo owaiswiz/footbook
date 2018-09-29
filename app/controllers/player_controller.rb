@@ -1,6 +1,10 @@
 class PlayerController < ApplicationController
   protect_from_forgery unless: -> { request.format.json? }
 
+  def select_to_compare
+    @players = Player.all.sort_by {|player| player.name.downcase}
+  end
+
   def show
     @player = Player.find params["id"]
   end
@@ -42,5 +46,7 @@ class PlayerController < ApplicationController
   end
 
   def compare
+    @player1 = Player.find params[:player1]
+    @player2 = Player.find params[:player2]
   end
 end

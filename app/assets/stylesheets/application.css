@@ -23,13 +23,13 @@
 .search {
   position:relative;
 }
-.navbar input.search{
+input.search{
   margin-right: 200px;
   padding: 0.6rem;
   margin-top: 1.0rem;
   margin-bottom: 1.0rem;
   border-radius: 100px;
-  min-width: 600px;
+  min-width: 300px;
   font-size: 1.0rem;
   border-color: transparent;
   outline: none;
