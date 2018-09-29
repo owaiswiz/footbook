@@ -1,0 +1,16 @@
+<div class="player-select">
+  <h1 class="is-size-1">Select Players to Compare</h1>
+  <form action="/players/compare" method="post">
+    <div class="select-player-1">
+      <h2 class="is-size-4">Player 1</h2>
+      <%= render partial: "partials/player_select", locals: {players: @players, name: 'player1'} %>
+    </div>
+    <div class="select-player-2">
+      <h2 class="is-size-4">Player 2</h2>
+      <%= render partial: "partials/player_select", locals: {players: @players, name: 'player2'} %>
+    </div>
+    <div class="compare-player-button">
+      <input type="submit" value="Compare">
+    </div>
+  </form>
+</div>
