@@ -101,3 +101,44 @@
   }
 }
 
+.player-select {
+  width: 700px;
+  margin: auto;
+  text-align: center;
+  > form > div {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin: auto;
+  }
+  h1 {
+    margin-bottom: 3rem;
+  }
+  select {
+    min-width: 400px;
+    max-width: 400px;
+    border-radius: 25px;
+    outline: none;
+    border: 2px solid black;
+    padding: 1.0rem 4rem;
+    margin: 2rem;
+    margin-left: 5rem;
+    background-color: transparent;
+  }
+   input[type='submit'] {
+    padding: 1.5rem 5rem;
+    width: 100%;
+    border-radius: 100px;
+    outline: none;
+    background-color: transparent;
+    color: #2097ca;
+    border: 2px solid #2097ca;
+    font-size: 1.2rem;
+    cursor: pointer;
+    transition-duration: 0.3s;
+    &:hover {
+      background-color: #2097ca;
+      color: white;
+    }
+   }
+}

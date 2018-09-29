@@ -6,7 +6,7 @@
         <div>
           <img class="rounded-img" src='<%= image_url "players/1.jpeg" %>' width="128px"/>
           <div>
-            Leonel Messi
+            <%= @player1.name %>
           </div>
         </div>
       </td>
@@ -14,7 +14,7 @@
         <div>
           <img class="rounded-img" src='<%= image_url "players/1.jpeg" %>' width="128px"/>
           <div>
-            Ronaldo Cristiano
+            <%= @player2.name %>
           </div>
         </div>
       </td>
@@ -53,44 +53,51 @@
         <td class="<%= comparisons[key][:key] %>-player-2"></td>
       </tr>
     <% end %>
+    <tr>
+      <td>Total Score</td>
+      <td class="score-player-1"></td>
+      <td class="score-player-2"></td>
+    </tr>
   </tbody>
 </table>
 
 
 <script>
-  async function setupComparisonTable() {
-    var player1 = await (await fetch('/player/json/1')).json()
-    var player2 = await (await fetch('/player/json/3')).json()
-    var player1Score = 0
-    var player2Score = 0
-    var keys = ['networth', 'trophies', 'goals', 'assists', 'appearance', 'greencards', 'redcards', 'yellowcards', 'position', 'networth', 'nationality', 'age', 'height', 'club', 'avgstars', 'jersey_no']
+  var player1 = <%= @player1.to_json.html_safe %>
+  var player2 = <%= @player2.to_json.html_safe %>
+  var player1Score = 0
+  var player2Score = 0
+  var keys = ['networth', 'trophies', 'goals', 'assists', 'appearance', 'greencards', 'redcards', 'yellowcards', 'position', 'networth', 'nationality', 'age', 'height', 'club', 'avgstars', 'jersey_no']
 
-    player1.avgstars = ((player1.five_stars * 5) + (player1.four_stars * 4)  + (player1.three_stars * 3) + (player1.two_stars * 2) + (player1.one_stars * 1))/(player1.five_stars + player1.four_stars + player1.three_stars + player1.two_stars + player1.one_stars) || 0
+  player1.avgstars = ((player1.five_stars * 5) + (player1.four_stars * 4)  + (player1.three_stars * 3) + (player1.two_stars * 2) + (player1.one_stars * 1))/(player1.five_stars + player1.four_stars + player1.three_stars + player1.two_stars + player1.one_stars) || 0
 
-    player2.avgstars = ((player2.five_stars * 5) + (player2.four_stars * 4)  + (player2.three_stars * 3) + (player2.two_stars * 2) + (player2.one_stars * 1))/(player2.five_stars + player2.four_stars + player2.three_stars + player2.two_stars + player2.one_stars) || 0
+  player2.avgstars = ((player2.five_stars * 5) + (player2.four_stars * 4)  + (player2.three_stars * 3) + (player2.two_stars * 2) + (player2.one_stars * 1))/(player2.five_stars + player2.four_stars + player2.three_stars + player2.two_stars + player2.one_stars) || 0
 
-    keys.map(key => {
-      $(`.${key}-player-1`).text(player1[key])
-      $(`.${key}-player-2`).text(player2[key])
-      if(typeof(player1[key]) != 'number' || typeof(player2[key]) != 'number' || key == 'age' || key == 'jersey_no')
-        return
+  keys.map(key => {
+    $(`.${key}-player-1`).text(player1[key])
+    $(`.${key}-player-2`).text(player2[key])
+    if(typeof(player1[key]) != 'number' || typeof(player2[key]) != 'number' || key == 'age' || key == 'jersey_no')
+      return
 
-      if(player1[key] == player2[key])
-        $(`.${key}-player-1,.${key}-player-2`).addClass('yellow').removeClass('red green')
-      else if(((key == 'yellowcards' || key == 'redcards') && player1[key] < player2[key] ) || ((key != 'yellowcards' && key != 'redcards') && player1[key] > player2[key])) {
-        $(`.${key}-player-1`).addClass('green').removeClass('red')
-        $(`.${key}-player-2`).addClass('red').removeClass('green')
-        player1Score += 1
-      }
-      else {
-        $(`.${key}-player-1`).addClass('red').removeClass('green')
-        $(`.${key}-player-2`).addClass('green').removeClass('red')
-        player2Score += 1
-      }
-    })
-    Object.keys(player1).map(key => {
-      console.log(key)
-    })
-  }
-  setupComparisonTable();
+    if(player1[key] == player2[key])
+      $(`.${key}-player-1,.${key}-player-2`).addClass('yellow').removeClass('red green')
+    else if(((key == 'yellowcards' || key == 'redcards') && player1[key] < player2[key] ) || ((key != 'yellowcards' && key != 'redcards') && player1[key] > player2[key])) {
+      $(`.${key}-player-1`).addClass('green').removeClass('red')
+      $(`.${key}-player-2`).addClass('red').removeClass('green')
+      player1Score += 1
+    }
+    else {
+      $(`.${key}-player-1`).addClass('red').removeClass('green')
+      $(`.${key}-player-2`).addClass('green').removeClass('red')
+      player2Score += 1
+    }
+  })
+  $('.score-player-1').text(player1Score)
+  $('.score-player-2').text(player2Score)
+  if(player1Score == player2Score)
+    $('.score-player-1, .score-player-2').addClass('yellow')
+  else if(player1Score > player2Score)
+    $('.score-player-1').addClass('green')
+  else
+    $('.score-player-2').addClass('green')
 </script>
