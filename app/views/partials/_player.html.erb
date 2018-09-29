@@ -8,15 +8,16 @@
     <div class="media">
       <div class="media-content has-text-centered ">
         <p class="title is-4"><a href='/player/show/<%= player.id %>'><%= player.name %></a>
-        <p class="subtitle is-6">@leomessi</p>
       </div>
     </div>
     <div class="content">
-      Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-      Phasellus nec iaculis mauris. <a>@bulmaio</a>.
-      <a href="#">#css</a> <a href="#">#responsive</a>
-      <br>
-      <time datetime="2016-1-1">11:09 PM - 1 Jan 2016</time>
+      <ul>
+        <li><%= player.nationality %></li>
+        <li><%= player.club || 'No Club' %></li>
+        <li><%= player.goals %> Goals</li>
+        <li><%= player.trophies %> Trophies</li>
+        <li><%= player.age %> Years Old</li>
+      </ul>
     </div>
   </div>
 </div>
