@@ -19,13 +19,6 @@ ActiveAdmin.register Player do
     end
   end
 
-  before_create do |player|
-    puts '-'*90
-    # puts player.image
-    puts '-'*90
-    puts '-'*90
-  end
-  
   index do
     selectable_column
     id_column
@@ -44,13 +37,9 @@ ActiveAdmin.register Player do
   filter :club
   filter :goals
   form do |f|
-    f.inputs do
-      f.input :name
-      f.input :club
-      f.input :goals
-    end
-    f.inputs 'Image' do
-      f.input :image, as: :file
+    f.inputs
+    f.inputs 'Player Image' do
+      f.input :player_image, as: :file
     end
     f.actions
   end
