@@ -1,6 +1,7 @@
 <div class="player-info">
   <div class="name-and-rate-block mb-30 flex justify-space-between align-center">
-    <h1 class="is-size-1 has-text-weight-bold"><%= @player.name %></h1>
+    <h1 class="is-size-1 has-text-weight-bold">
+      <%= @player.name %></h1>
     <div>
       <div class="player-rating starrr"></div>
     </div>
@@ -90,25 +91,25 @@
       <%= render partial: "partials/label_and_img", locals: { 
         image_name: 'outfitter.png',
         label: 'Outfitter',
-        value: 'Adidas',
+        value: @player.outfitter,
       } %>
 
       <%= render partial: "partials/label_and_img", locals: { 
         image_name: 'age.png',
         label: 'Current Age',
-        value: 20,
+        value: @player.age,
       } %>
 
       <%= render partial: "partials/label_and_img", locals: { 
         image_name: 'club.png',
         label: 'Current Club',
-        value: 'Liverpool',
+        value: @player.club,
       } %>
 
       <%= render partial: "partials/label_and_img", locals: { 
         image_name: 'height.png',
         label: 'Height',
-        value: '5"9',
+        value: "#{@player.height} Mtr.",
       } %>
 
       <%= render partial: "partials/label_and_img", locals: { 

@@ -96,8 +96,12 @@
   $('.score-player-2').text(player2Score)
   if(player1Score == player2Score)
     $('.score-player-1, .score-player-2').addClass('yellow')
-  else if(player1Score > player2Score)
+  else if(player1Score > player2Score) {
     $('.score-player-1').addClass('green')
-  else
+    $('.score-player-2').addClass('red')
+  }
+  else {
     $('.score-player-2').addClass('green')
+    $('.score-player-2').addClass('green')
+  }
 </script>

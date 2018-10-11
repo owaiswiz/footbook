@@ -6,6 +6,7 @@ class PlayerController < ApplicationController
   end
 
   def show
+    # SELECT * FROM players where id=params["id"]
     @player = Player.find params["id"]
   end
 
