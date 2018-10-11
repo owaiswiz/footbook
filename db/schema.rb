@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_10_11_122056) do
+ActiveRecord::Schema.define(version: 2018_10_11_154849) do
 
   create_table "active_admin_comments", force: :cascade do |t|
     t.string "namespace"
@@ -63,6 +63,8 @@ ActiveRecord::Schema.define(version: 2018_10_11_122056) do
     t.integer "height", default: 0
     t.string "outfitter"
     t.string "foot"
+    t.string "image"
+    t.float "avg_stars"
   end
 
 end
