@@ -142,3 +142,49 @@
     }
    }
 }
+
+.rankings {
+  max-width: 1100px;
+  margin: auto;
+  .rank-by {
+    display: flex;
+    // justify-content: space-between;
+    align-items: center;
+    select {
+      margin-left: 5rem;
+      appearance: none;
+      border: 2px solid black;
+      border-radius: 100px;
+      padding: 1rem 5rem;
+      background-color: transparent;
+      text-align: center;
+      transition-duration: 0.2s;
+      option {
+        text-align: center;
+      }
+      &:hover {
+        cursor: pointer;
+        transform: scale(1.2)
+      }
+      &:focus {
+        outline: none;
+      }
+    }
+  }
+  .players-table {
+    margin-top: 4rem;
+    td {
+      padding: 1.5rem;
+    }
+    tr {
+      transition-duration: 0.2s;
+    }
+    tbody tr:hover{
+      border: none !important;
+      outline: 2px solid black;
+      transform: scale(1.2);
+      cursor: pointer;
+      background: white;
+    }
+  }
+}
