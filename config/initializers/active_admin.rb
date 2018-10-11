@@ -112,7 +112,7 @@ ActiveAdmin.setup do |config|
   # roots for each namespace.
   #
   # Default:
-  config.root_to = 'player#index'
+  config.root_to = 'players#index'
 
   # == Admin Comments
   #

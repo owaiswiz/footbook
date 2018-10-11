@@ -13,9 +13,13 @@
  *= require_tree .
  *= require_self
  *= require font-awesome
+ *= stub "active_admin"
  */
 @import "bulma";
 
+a, a:visited {
+  text-decoration: none !important;
+}
 .navbar-item img {
   max-height: 50rem;
 }
@@ -100,4 +104,3 @@ input.search{
 .scale-30:hover {
   transform: scale(1.3);
 }
-
