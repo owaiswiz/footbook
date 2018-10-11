@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  devise_for :admins, ActiveAdmin::Devise.config
+  ActiveAdmin.routes(self)
   get 'player/search/:name' => 'player#search'
   get 'player/show/:id' => 'player#show'
   get 'player/json/:id' => 'player#json'
