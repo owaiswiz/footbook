@@ -1,0 +1,73 @@
+<div class="rankings">
+  <div class="rank-by">
+    <h1 class="is-size-2 has-text-weight-semibold">Rank Players By:</h1>
+    <select class="rank-by-select">
+      <option value="goals">Goals</option>
+      <option value="assists">Assists</option>
+      <option value="trophies">Trophies</option>
+      <option value="appearance">Appearances</option>
+      <option value="avg_stars">Stars</option>
+    </select>
+  </div>
+
+  <div class="players-table">
+    <table class="table">
+      <thead>
+        <tr>
+          <td>Name</td>
+          <td>Goals</td>
+          <td>Assists</td>
+          <td>Avg Stars</td>
+          <td>Trophies</td>
+          <td>Appearances</td>
+          <td>Club</td>
+          <td>Nationality</td>
+          <td>Age</td>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<script>
+  var players = []
+  document.addEventListener('turbolinks:load', () => {
+    $.ajax({
+      url: '/players/json',
+      success: (data) => {
+        players = data
+        $('.rank-by-select').on('change', (e) => {
+          let sortBy = e.target.value
+          players.sort((a, b) => b[sortBy] - a[sortBy])
+          let tableBody = ''
+          players.map(player => {
+            tableBody += `
+              <tr>
+                <td><a href="/player/show/${player.id}">${player.name}</a></td>
+                <td>${player.goals}</td>
+                <td>${player.assists}</td>
+                <td>${player.avg_stars}</td>
+                <td>${player.trophies}</td>
+                <td>${player.appearance}</td>
+                <td>${player.club}</td>
+                <td>${player.nationality}</td>
+                <td>${player.age}</td>
+              </tr>
+            `
+          })
+          $('.players-table tbody').html(tableBody)
+        })
+        $('.rank-by-select').change()
+      }
+    })
+  })
+</script>

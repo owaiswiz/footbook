@@ -14,6 +14,10 @@ class PlayerController < ApplicationController
     render json: Player.find(params["id"]).to_json
   end
 
+  def players_json
+    render json: Player.all.to_json
+  end
+
   def search
     render json: Player.search_by_name(params["name"]).to_json
   end
@@ -49,5 +53,8 @@ class PlayerController < ApplicationController
   def compare
     @player1 = Player.find params[:player1]
     @player2 = Player.find params[:player2]
+  end
+
+  def rankings
   end
 end
