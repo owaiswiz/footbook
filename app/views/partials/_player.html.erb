@@ -1,7 +1,7 @@
 <div class="card has-text-centered column mt-50 ml-25 mr-25">
   <div class="card-image">
     <figure class="">
-      <img src="<%= image_url "players/#{player.id}.jpeg" %>" alt="Placeholder image" height=100>
+      <img src="<%= image_url player.image %>" alt="Placeholder image" height=200 width=200>
     </figure>
   </div>
   <div class="card-content ">
@@ -11,7 +11,7 @@
       </div>
     </div>
     <div class="content">
-      <ul>
+      <ul style="margin-left: 0;">
         <li><%= player.nationality %></li>
         <li><%= player.club || 'No Club' %></li>
         <li><%= player.goals %> Goals</li>

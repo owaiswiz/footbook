@@ -1,5 +1,5 @@
 <select name="<%= name %>">
   <% players.each do |player| %>
-    <option value="<%= player.id %>"><%= "#{player.name} • #{player.nationality} • #{player.club || 'No Club'} • #{player.goals} Goals • #{player.age} Yrs Old" %></option>
+    <option value="<%= player.id %>"><%= "#{player.name} • #{player.nationality} • #{player.club || 'No Club'}" %></option>
   <% end %>
 </select>

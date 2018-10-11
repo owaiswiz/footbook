@@ -4,16 +4,16 @@
       <td class="is-size-5">Players</td>
       <td class="name-and-img-cell">
         <div>
-          <img class="rounded-img" src='<%= image_url "players/1.jpeg" %>' width="128px"/>
-          <div>
+          <img class="rounded-img" src='<%= image_url @player1.image %>' width="128px"/>
+          <div class="is-size-4">
             <%= @player1.name %>
           </div>
         </div>
       </td>
       <td class="name-and-img-cell">
         <div>
-          <img class="rounded-img" src='<%= image_url "players/1.jpeg" %>' width="128px"/>
-          <div>
+          <img class="rounded-img" src='<%= image_url @player2.image %>' width="128px"/>
+          <div class="is-size-4">
             <%= @player2.name %>
           </div>
         </div>
@@ -92,8 +92,8 @@
       player2Score += 1
     }
   })
-  $('.score-player-1').text(player1Score)
-  $('.score-player-2').text(player2Score)
+  $('.score-player-1').text(player1Score + '/' + (player1Score+player2Score))
+  $('.score-player-2').text(player2Score + '/' + (player1Score+player2Score))
   if(player1Score == player2Score)
     $('.score-player-1, .score-player-2').addClass('yellow')
   else if(player1Score > player2Score) {
